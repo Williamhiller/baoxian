@@ -1,0 +1,14 @@
+@import "./variable";
+
+body {
+  font-family: PingFangSC-Regular,'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-size: $base-size;
+}
+
+div {
+
+  //background-image: radial-gradient(50% 100%, #3EBAF9 0%, #2BB6FC 100%);
+}
