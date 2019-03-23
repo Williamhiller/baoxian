@@ -13,6 +13,7 @@ export default {
 <style lang="scss">
   @import "style/variable";
   @import "style/common.scss";
+
   #app {
   }
 </style>

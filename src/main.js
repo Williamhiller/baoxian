@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import './plugin/rem'
+import 'swiper/dist/css/swiper.min.css'
 
 // 引入mockjs
 require('./mock.js')
