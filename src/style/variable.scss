@@ -7,3 +7,12 @@ $border-color:       #ACBACB; // 边框颜色
 $bg-color    :       #ACBACB; // 背景色
 
 $base-size   :       .24rem; // 页面基础字体大小
+
+$tabs-height :       1.46rem;
+$tabs-default-bg :   #ffffff;
+$tabs-init :         $text-color;
+$tabs-default-border :  0 -1px .2rem 0 rgba(214,214,214,0.50);
+$tabs-default-text :   $bg-color;
+$z-index-tabs:       99;
+$tab-padding-item : .24rem;
+$tabs-text-font-size : .20rem;

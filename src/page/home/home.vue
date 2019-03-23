@@ -1,6 +1,10 @@
 <template>
   <div class="home-page">
     <h1>{{ msg }}</h1>
+    <ul class="row">
+      <li class="col-50">d</li>
+      <li class="col-50">dsd</li>
+    </ul>
     <p>teeewewewewe<br/>dsdsdsd</p>
 
     <div class="swiper-container">
@@ -16,11 +20,15 @@
         </div>
       </div>
     </div>
+    <div>
+      <tabs active="home"></tabs>
+    </div>
   </div>
 </template>
 
 <script>
 import getData from '../../service/getData'
+import tabs from '../../components/tabs/tabs'
 import Swiper from 'swiper'
 
 export default {
@@ -30,13 +38,16 @@ export default {
       msg: 'Welcome Home'
     }
   },
+  components:{
+    tabs
+  },
   created () {
     this.setNewsApi()
   },
   mounted () {
-    // let mySwiper = new Swiper('.swiper-container', {
-    //   autoplay:false
-    // })
+    new Swiper('.swiper-container', {
+      autoplay : false
+    })
   },
   methods: {
 
