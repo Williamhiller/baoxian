@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
+    <img src="../assets/image/home.png" alt="">
     <ul>
       <li>
         <a
