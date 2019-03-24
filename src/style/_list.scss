@@ -1,0 +1,113 @@
+
+.list {
+  &>.item {
+    background-color: #fff;
+    margin-bottom: .16rem;
+  }
+  .item {
+  }
+}
+.item {
+  padding: $item-padding;
+  font-size: $item-size;
+  font-weight: 600;
+  color: #333;
+  position: relative;
+
+  .text {
+    color: rgba(#333,0.5);
+    font-size: .2rem;
+    font-weight: normal;
+    padding-left: .2rem;
+  }
+
+  &.item-link {
+    &:active {
+      background: $bg-color;
+    }
+    &:after {
+      content: "";
+      display: inline-block;
+      background-image: url("./assets/image/arrow_right.png");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      position: absolute;
+      right: .32rem;
+      top: .24rem;
+      width: .38rem;
+      height: .38rem;
+    }
+  }
+
+}
+.item-avatar {
+  &.avatar-right {
+    padding-right: 1rem;
+    .avatar {
+      position: absolute;
+      right: .24rem;
+      top: .24rem;
+    }
+  }
+  &.avatar-left {
+    padding-left: 1.4rem;
+    .avatar {
+      position: absolute;
+      left: 0;
+      top: .24rem;
+      img {
+        border-radius: .08rem;
+      }
+    }
+  }
+  .item-body {
+    h2 {
+      color: $base-color;
+      font-size: .28rem;
+      margin-bottom: .08rem;
+      line-height: 1.6;
+      padding-top: .08rem;
+    }
+    p {
+      font-size: .24rem;
+      color: #737171;
+      font-weight: normal;
+    }
+  }
+  &.vertical {
+    display: flex;
+    align-items:center;/*垂直居中*/
+  }
+  position: relative;
+  min-height: 1.3rem;
+  p {
+    line-height: 1.4;
+  }
+  .avatar {
+    display: block;
+    width: 1.2rem;
+    height: 1.2rem;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &.round {
+      overflow: hidden;
+      img {
+        border-radius: 50%;
+      }
+    }
+
+    .identify {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: .2rem;
+      height: .18rem;
+    }
+  }
+
+
+}
+

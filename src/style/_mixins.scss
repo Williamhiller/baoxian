@@ -195,7 +195,7 @@
 // Placeholder text
 // --------------------------------------------------
 
-@mixin placeholder($color: $input-color-placeholder, $text-indent: 0) {
+@mixin placeholder($color: red, $text-indent: 0) {
   &::-moz-placeholder { // Firefox 19+
     color: $color;
   }

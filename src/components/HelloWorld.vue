@@ -13,7 +13,7 @@
         </a>
       </li>
       <li>
-        <router-link  tag="a" to="/home">
+        <router-link  tag="a" to="/">
           testttt
         </router-link>
       </li>

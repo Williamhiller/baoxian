@@ -6,9 +6,12 @@
   @include translate3d(0,0,0);
 
   @include box-shadow($tabs-default-border);
+  background-color: #fff;
 
-  position: absolute;
+  position: fixed;
   bottom: 0;
+  left: 0;
+  right: 0;
 
 
   width: 100%;
@@ -18,19 +21,20 @@
   border-top-width: 1px;
 
   background-size: 0;
+  z-index: 999;
 
-  @media (min--moz-device-pixel-ratio: 1.5),
-         (-webkit-min-device-pixel-ratio: 1.5),
-         (min-device-pixel-ratio: 1.5),
-         (min-resolution: 144dpi),
-         (min-resolution: 1.5dppx) {
-    padding-top: 2px;
-    border-top: none !important;
-    border-bottom: none;
-    background-position: top;
-    background-size: 100% 1px;
-    background-repeat: no-repeat;
-  }
+  //@media (min--moz-device-pixel-ratio: 1.5),
+  //       (-webkit-min-device-pixel-ratio: 1.5),
+  //       (min-device-pixel-ratio: 1.5),
+  //       (min-resolution: 144dpi),
+  //       (min-resolution: 1.5dppx) {
+  //  padding-top: 2px;
+  //  border-top: none !important;
+  //  border-bottom: none;
+  //  background-position: top;
+  //  background-size: 100% 1px;
+  //  background-repeat: no-repeat;
+  //}
 
 }
 .tab-item {
@@ -54,15 +58,16 @@
 
   .text {
     font-size: $tabs-text-font-size;
-    line-height: 1.2;
+    line-height: 1.6;
   }
   .img-icon {
     height: .8rem;
     img {
-      width: .4rem;
+      width: .8rem;
     }
   }
   &.on {
+    background-color: rgba($tabs-bg-on,0.11);
     .text {
       color: $base-color;
     }

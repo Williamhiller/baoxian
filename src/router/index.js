@@ -1,21 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Home from '@/page/home/home'
 import Sign from '@/page/sign/sign'
 import Topic from '@/page/topic/topic'
+import Handpick from '@/page/handpick/handpick'
+import Word from '@/page/word/word'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
     { // 首页
-      path: '/home',
+      path: '/',
       name: 'home',
       component: Home
     },
@@ -28,6 +24,16 @@ export default new Router({
       path: '/topic',
       name: 'topic',
       component: Topic
+    },
+    { // 精选专题
+      path: '/handpick',
+      name: 'handpick',
+      component: Handpick
+    },
+    { // 精选专题
+      path: '/word',
+      name: 'word',
+      component: Word
     }
   ]
 })

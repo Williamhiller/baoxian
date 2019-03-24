@@ -1,12 +1,17 @@
 @import "./variable";
 @import "./mixins";
+@import "./reset";
 @import "./grid";
 @import "./tabs";
-@import "./reset";
-
+@import "./list";
+//html {
+//  position: relative;
+//  height: 100%;
+//}
 html , body {
   width: 100%;
-  overflow: hidden;
+  height: 100%;
+  //overflow: hidden;
 }
 body {
   font-family: PingFangSC-Regular,'Avenir', Helvetica, Arial, sans-serif;
@@ -14,10 +19,40 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   font-size: $base-size;
+  background-color: $bg-color;
+}
+.scroll {
+  overflow: auto;
+}
+.a {
+  color: $base-color;
+  font-weight: lighter;
+  font-size: .24rem;
+  text-decoration: none;
+}
+.text-right {
+  text-align: right;
+}
+
+.border-bottom {
+  border-bottom: 1px solid rgba(#ACBACB,0.5);
 }
 
 
 div {
 
   //background-image: radial-gradient(50% 100%, #3EBAF9 0%, #2BB6FC 100%);
+}
+
+.swiper-pagination-bullet {
+  width: .14rem;
+  height: .14rem;
+  border-radius: .7rem;
+  background-color: rgb(112,183,249);
+  opacity: 0.3;
+  margin: 0 .09rem !important;
+
+  &.swiper-pagination-bullet-active {
+    opacity: 1;
+  }
 }
