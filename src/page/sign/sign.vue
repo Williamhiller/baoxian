@@ -1,9 +1,15 @@
 <template>
   <div class="page-cont">
-    <div class="tabs-top">
-      <span style="display: inline-block;padding: 0 2em"
-            :class="{'on' : activeIndex === index}"
-            v-for="(item,index) in list" @click="jump(index)">{{item.name}}</span>
+    <div>
+      <div class="tabs-top swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide tab-top-item"
+               :class="{'on' : activeIndex === index}"
+               v-for="(item,index) in list" @click="jump(index)">
+            <span class="name">{{item.name}}</span>
+          </div>
+        </div>
+      </div>
     </div>
     <ul>
       <li v-for="(item,index) in list" :id="'cont'+index" v-bind:key="item.name">
@@ -14,7 +20,8 @@
 </template>
 
 <script>
-let tabHeight;
+  import Swiper from 'swiper'
+let tabHeight , topTabSwiper;
 export default {
   name: 'Sign',
   data () {
@@ -44,46 +51,57 @@ export default {
     // 计算顶部tab高度
     tabHeight = document.querySelector('.tabs-top').offsetHeight
     this.getAllTop()
+
+    topTabSwiper = new Swiper('.swiper-container', {
+      slidesPerView : 4,
+      freeMode: true
+    });
   },
   methods : {
     jump (index) {
       let self = this;
-      // let jump = document.getElementById('cont'+index)
-      let total = self.list[index].jumpHeight - tabHeight + 2
-      let distance = document.documentElement.scrollTop || document.body.scrollTop
-      // 平滑滚动，时长300ms，每10ms一跳，共30跳
-      let step = total / 20
-      if (total > distance) {
-        smoothDown()
-      } else {
-        let newTotal = distance - total
-        step = newTotal / 20
-        smoothUp()
-      }
-      function smoothDown () {
-        if (distance < total) {
-          distance += step
-          document.body.scrollTop = distance
-          document.documentElement.scrollTop = distance
-          setTimeout(smoothDown, 10)
-        } else {
-          document.body.scrollTop = total
-          document.documentElement.scrollTop = total
+
+      document.documentElement.scrollTop = self.list[index].jumpHeight - tabHeight
+      if(index === self.list.length-1) {
+        setTimeout(function () {
+          console.log(9)
           self.activeIndex = index
-        }
+        }, 10);
       }
-      function smoothUp () {
-        if (distance > total) {
-          distance -= step
-          document.body.scrollTop = distance
-          document.documentElement.scrollTop = distance
-          setTimeout(smoothUp, 10)
-        } else {
-          document.body.scrollTop = total
-          document.documentElement.scrollTop = total
-          self.activeIndex = index
-        }
-      }
+
+      // // 平滑滚动，时长300ms，每10ms一跳，共30跳
+      // let step = total / 20
+      // if (total > distance) {
+      //   smoothDown()
+      // } else {
+      //   let newTotal = distance - total
+      //   step = newTotal / 20
+      //   smoothUp()
+      // }
+      // function smoothDown () {
+      //   if (distance < total) {
+      //     distance += step
+      //     document.body.scrollTop = distance
+      //     document.documentElement.scrollTop = distance
+      //     setTimeout(smoothDown, 10)
+      //   } else {
+      //     document.body.scrollTop = total
+      //     document.documentElement.scrollTop = total
+      //     self.activeIndex = index
+      //   }
+      // }
+      // function smoothUp () {
+      //   if (distance > total) {
+      //     distance -= step
+      //     document.body.scrollTop = distance
+      //     document.documentElement.scrollTop = distance
+      //     setTimeout(smoothUp, 10)
+      //   } else {
+      //     document.body.scrollTop = total
+      //     document.documentElement.scrollTop = total
+      //     self.activeIndex = index
+      //   }
+      // }
     },
     getAllTop () {
       this.list.forEach((item,index)=>{
@@ -98,6 +116,7 @@ export default {
         let item = this.list[i]
         if(distance < item.jumpHeight) {
           this.activeIndex = i-1;
+          console.log(8)
           break;
         }
       }
@@ -113,20 +132,37 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+  @import "../../style/variable";
+  @import "../../style/mixins";
   .page-cont {
-    padding-top: 1.2rem;
+    padding-top: .88rem;
   }
   .tabs-top {
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    height: 1.2rem;
+    height: .88rem;
     background-color: #fff;
 
-    span.on {
-      background-color: red;
+    .tab-top-item {
+      padding-top: .04rem;
+      text-align: center;
+      &.on {
+        span.name {
+          color: $base-color;
+          font-weight: bold;
+          border-bottom-color: $base-color;
+        }
+      }
+      span.name {
+        line-height: .8rem;
+        display: inline-block;
+        border-bottom: .04rem solid transparent;
+      }
     }
+
   }
 
 </style>
