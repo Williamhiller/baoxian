@@ -5,6 +5,7 @@ import Sign from '@/page/sign/sign'
 import Topic from '@/page/topic/topic'
 import Handpick from '@/page/handpick/handpick'
 import Word from '@/page/word/word'
+import Blank from '@/page/blank/blank'
 
 Vue.use(Router)
 
@@ -38,6 +39,11 @@ export default new Router({
       path: '/word',
       name: 'word',
       component: Word
+    },
+    { // 未搜索到东西
+      path: '/blank',
+      name: 'blank',
+      component: Blank
     }
   ]
 })

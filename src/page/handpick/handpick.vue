@@ -186,7 +186,7 @@
     font-size: .46rem;
     color: #333;
     padding-bottom: .24rem;
-    border-bottom: .01rem solid #ACBACB;
+    border-bottom: .01rem solid $border-color;
     span {
       font-size: .86rem;
       color: $base-color;
@@ -214,7 +214,7 @@
   }
   .block1 {
     .item {
-      border-bottom: 1px solid rgba(#ACBACB,0.5);
+      border-bottom: 0.01rem solid $border-color;
     }
   }
   .block2 {
