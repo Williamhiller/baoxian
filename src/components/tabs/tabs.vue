@@ -17,16 +17,16 @@
 </template>
 
 <script>
-    export default {
-      name: "tabs",
-      props:["active"],
-      methods:{
+export default {
+  name: 'tabs',
+  props: ['active'],
+  methods: {
 
-      },
-      computed:{
+  },
+  computed: {
 
-      }
-    }
+  }
+}
 </script>
 
 <style scoped>

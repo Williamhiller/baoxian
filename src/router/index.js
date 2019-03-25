@@ -10,8 +10,12 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    { // 空地址跳转至home
+      path: '',
+      redirect: '/home'
+    },
     { // 首页
-      path: '/',
+      path: '/home',
       name: 'home',
       component: Home
     },
