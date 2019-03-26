@@ -2,17 +2,18 @@
   <div class="home-page has-tab scroll">
     <div class="home-top">
       <div class="search_box">
-        <div class="search">
-          <input type="search" v-bind:placeholder="msg">
-        </div>
+        <form action="javascript:return true;" class="search">
+          <input type="search" v-model="inputWord" v-bind:placeholder="initWord" @keyup.13=search() ref="input1">
+          <span class="submit" v-on:click="search()"></span>
+        </form>
       </div>
       <div class="hot_box">
         <span class="tit">热词</span>
 
-        <span class="word">儿童保险</span>
-        <span class="word">理赔</span>
-        <span class="word">旅意险</span>
-        <span class="word">单身养老</span>
+        <router-link tag="span" to="/word?word=儿童保险" class="word">儿童保险</router-link>
+        <router-link tag="span" to="/word?word=理赔" class="word">理赔</router-link>
+        <router-link tag="span" to="/word?word=旅意险" class="word">旅意险</router-link>
+        <router-link tag="span" to="/word?word=单身养老" class="word">单身养老</router-link>
       </div>
 
       <div class="swiper-container">
@@ -168,7 +169,8 @@ export default {
   name: 'home',
   data () {
     return {
-      msg: '旅意险',
+      inputWord : '',
+      initWord: '旅意险',
       showToggle : 0
     }
   },
@@ -195,6 +197,10 @@ export default {
     toggleDown : function (index) {
       this.showToggle = index;
     },
+    search () {
+      this.$refs.input1.blur();
+      this.$router.push({ path: '/word', query: { word: this.inputWord || this.initWord }});
+    }
 
   }
 }
@@ -224,10 +230,19 @@ export default {
         padding: .12rem .64rem .12rem .32rem;
         box-sizing: border-box;
         background-color: rgba(#08557D,.21);
-        background-image: url("../../assets/image/search_w.png");
-        background-size: .32rem .32rem;
-        background-repeat: no-repeat;
-        background-position: top .16rem right .32rem;
+        position: relative;
+        .submit {
+          display: block;
+          position: absolute;
+          width: .64rem;
+          height: .64rem;
+          right: 0;
+          top: 0;
+          background-image: url("../../assets/image/search_w.png");
+          background-repeat: no-repeat;
+          background-size: .32rem .32rem;
+          background-position: top .14rem right .24rem;
+        }
         input {
           height: .38rem;
           width: 100%;

@@ -1,11 +1,11 @@
 <template>
-  <div class="page-cont">
+  <div class="page-cont has-tab">
     <div>
       <div class="tabs-top swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide tab-top-item"
                :class="{'on' : activeIndex === index}"
-               v-for="(item,index) in list" v-on:click="jump(index)">
+               v-for="(item,index) in list" @click="jump(index)">
             <span class="name">{{item.name}}</span>
           </div>
         </div>
@@ -40,11 +40,13 @@
         </div>
       </li>
     </ul>
+    <tabs active="sign"></tabs>
   </div>
 </template>
 
 <script>
   import Swiper from 'swiper'
+  import tabs from '../../components/tabs/tabs'
 let tabHeight , topTabSwiper;
 export default {
   name: 'Sign',
@@ -79,6 +81,9 @@ export default {
       ]
     }
   },
+  components:{
+    tabs
+  },
   mounted () {
     // 计算顶部tab高度
     tabHeight = document.querySelector('.tabs-top').offsetHeight
@@ -92,9 +97,8 @@ export default {
   methods : {
     jump (index) {
       let self = this;
-      let distance = self.list[index].jumpHeight - tabHeight
-      document.body.scrollTop = distance
-      document.documentElement.scrollTop = distance
+
+      document.documentElement.scrollTop = self.list[index].jumpHeight - tabHeight
       if(index === self.list.length-1) {
         setTimeout(function () {
           self.activeIndex = index

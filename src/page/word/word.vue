@@ -1,9 +1,10 @@
 <template>
-  <div class="page">
+  <div class="page has-tab">
     <div class="search_box">
-      <div class="search">
-        <input type="search" v-bind:placeholder="word">
-      </div>
+      <form action="javascript:return true;" class="search">
+        <input type="search" v-model="inputWord" v-bind:placeholder="word" @keyup.13=search() ref="input1">
+        <span class="submit" v-on:click="search()"></span>
+      </form>
     </div>
 
     <div class="wrapper">
@@ -14,7 +15,7 @@
         <div class="item item-avatar avatar-left">
           <div class="avatar"><img src="../../assets/image/inner.png" alt=""></div>
           <div class="item-body">
-            <h2>旅意险</h2>
+            <h2>{{word}}</h2>
             <p>旅行意外险，即是旅行保险，是在本国或者国际旅行中能够提供一种为支付医疗费用和财务和其他损失的保险业务。</p>
           </div>
         </div>
@@ -48,17 +49,25 @@
       </ul>
     </div>
 
+    <tabs active="home"></tabs>
   </div>
 </template>
 
 <script>
+  import tabs from '../../components/tabs/tabs'
   export default {
     name : "word",
+    components:{
+      tabs
+    },
     data () {
       return {
         word: '旅意险'
       }
     },
+    mounted () {
+      this.word = this.$route.query.word
+    }
   }
 </script>
 
@@ -167,10 +176,19 @@
       padding: .12rem .64rem .12rem .32rem;
       box-sizing: border-box;
       background-color: rgba(#F5F7FA,1);
-      background-image: url("../../assets/image/search_gray.png");
-      background-size: .32rem .32rem;
-      background-repeat: no-repeat;
-      background-position: top .16rem right .32rem;
+      position: relative;
+      .submit {
+        display: block;
+        position: absolute;
+        width: .64rem;
+        height: .64rem;
+        right: 0;
+        top: 0;
+        background-image: url("../../assets/image/search_gray.png");
+        background-repeat: no-repeat;
+        background-size: .32rem .32rem;
+        background-position: top .14rem right .24rem;
+      }
       input {
         height: .38rem;
         width: 100%;
