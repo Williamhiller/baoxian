@@ -82,6 +82,7 @@ export default {
   mounted () {
     // 计算顶部tab高度
     tabHeight = document.querySelector('.tabs-top').offsetHeight
+    console.log(tabHeight)
     this.getAllTop()
 
     topTabSwiper = new Swiper('.swiper-container', {
@@ -92,7 +93,7 @@ export default {
   methods : {
     jump (index) {
       let self = this;
-      let distance = self.list[index].jumpHeight - tabHeight
+      let distance = document.getElementById('cont'+index).offsetTop - tabHeight
       document.body.scrollTop = distance
       document.documentElement.scrollTop = distance
       if(index === self.list.length-1) {
@@ -140,6 +141,7 @@ export default {
       this.list.forEach((item,index)=>{
         item.jumpHeight = document.getElementById('cont'+index).offsetTop
       })
+      console.log(this.list)
     },
     handleScroll () {
 
@@ -208,6 +210,7 @@ export default {
     &>li {
       background-color: #fff;
       margin-bottom: .16rem;
+      box-sizing: border-box;
     }
     .intro_img {
       width: 100%;

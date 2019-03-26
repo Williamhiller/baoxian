@@ -9,9 +9,11 @@
       <div class="hot_box">
         <span class="tit">热词</span>
 
-        <span class="word">儿童保险</span>
+        <router-link  tag="span" to="/word?test=90" class="word">儿童保险</router-link>
         <span class="word">理赔</span>
         <span class="word">旅意险</span>
+        <span class="word">拒保</span>
+        <span class="word">宠物伤害</span>
         <span class="word">单身养老</span>
       </div>
 
