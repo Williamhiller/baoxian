@@ -11,6 +11,7 @@
 html , body {
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
   //overflow: hidden;
 }
 body {
@@ -38,6 +39,9 @@ body {
   border-bottom: 0.01rem solid $border-color;
 }
 
+.has-tab {
+  padding-bottom: $tabs-height + 0.2rem;
+}
 
 div {
 

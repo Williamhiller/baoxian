@@ -1,5 +1,5 @@
 <template>
-  <div class="home-page scroll">
+  <div class="home-page has-tab scroll">
     <div class="home-top">
       <div class="search_box">
         <div class="search">
@@ -33,9 +33,9 @@
 
     <div class="list">
       <div class="item item-link">
-        <div>
+        <router-link tag="div" to="/sign">
           签约专栏 <span class="text">资深规划师案例详解</span>
-        </div>
+        </router-link>
 
         <ul class="sign-row row">
           <li class="col left">
@@ -74,9 +74,9 @@
         </ul>
       </div>
       <div class="item item-link">
-        <div>
+        <router-link tag="div" to="/handpick">
           精选专题 <span class="text">资深规划师案例详解</span>
-        </div>
+        </router-link>
 
         <ul class="handpick-row row">
           <li class="col">
@@ -205,7 +205,6 @@ export default {
   @import "../../style/mixins";
 
   .home-page {
-    padding-bottom: $tabs-height + 0.2rem;
   }
   .home-top {
     background-color: #fff;
@@ -265,12 +264,27 @@ export default {
 
     .swiper-container {
       width: 100%;
-      height: 4.5rem;
+      height: 4.4rem;
       padding-left: .48rem;
 
       .swiper-wrapper {
         margin-left: -.24rem;
       }
+      .swiper-pagination-bullets {
+        bottom: 0;
+      }
+      .swiper-pagination-bullet {
+         width: .14rem;
+         height: .14rem;
+         border-radius: .7rem;
+         background-color: rgb(112,183,249);
+         opacity: 0.3;
+         margin: 0 .09rem !important;
+
+         &.swiper-pagination-bullet-active {
+           opacity: 1;
+         }
+       }
       .swiper-slide {
         height: 4.5rem;
         padding: 0 .1rem;
