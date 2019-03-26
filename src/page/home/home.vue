@@ -292,12 +292,12 @@ export default {
          width: .14rem;
          height: .14rem;
          border-radius: .7rem;
-         background-color: rgb(112,183,249);
+         background-color: rgb(112,183,249) !important;
          opacity: 0.3;
          margin: 0 .09rem !important;
 
          &.swiper-pagination-bullet-active {
-           opacity: 1;
+           opacity: 1 !important;
          }
        }
       .swiper-slide {
