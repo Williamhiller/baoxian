@@ -92,8 +92,9 @@ export default {
   methods : {
     jump (index) {
       let self = this;
-
-      document.documentElement.scrollTop = self.list[index].jumpHeight - tabHeight
+      let distance = self.list[index].jumpHeight - tabHeight
+      document.body.scrollTop = distance
+      document.documentElement.scrollTop = distance
       if(index === self.list.length-1) {
         setTimeout(function () {
           self.activeIndex = index

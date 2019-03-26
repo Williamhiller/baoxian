@@ -8,10 +8,10 @@
       <div class="img-icon"><img src="../../assets/image/tabs/tab2.png" alt=""></div>
       <p class="text">专栏</p>
     </router-link>
-    <router-link tag="div" to="/hello" class="tab-item tab3" v-bind:class="{'on':active == 'me'}">
+    <div class="tab-item tab3" v-bind:class="{'on':active == 'me'}">
       <div class="img-icon"><img src="../../assets/image/tabs/tab3.png" alt=""></div>
       <p class="text">我的</p>
-    </router-link>
+    </div>
 
   </div>
 </template>
