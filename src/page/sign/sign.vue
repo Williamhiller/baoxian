@@ -97,48 +97,15 @@ export default {
   methods : {
     jump (index) {
       let self = this;
-
-      document.documentElement.scrollTop = self.list[index].jumpHeight - tabHeight
+      let distance = document.getElementById("cont"+index).offsetTop - tabHeight
+      document.body.scrollTop = distance
+      document.documentElement.scrollTop = distance
       if(index === self.list.length-1) {
         setTimeout(function () {
           self.activeIndex = index
           topTabSwiper.slideTo(index-1)
         }, 10);
       }
-
-      // // 平滑滚动，时长300ms，每10ms一跳，共30跳
-      // let step = total / 20
-      // if (total > distance) {
-      //   smoothDown()
-      // } else {
-      //   let newTotal = distance - total
-      //   step = newTotal / 20
-      //   smoothUp()
-      // }
-      // function smoothDown () {
-      //   if (distance < total) {
-      //     distance += step
-      //     document.body.scrollTop = distance
-      //     document.documentElement.scrollTop = distance
-      //     setTimeout(smoothDown, 10)
-      //   } else {
-      //     document.body.scrollTop = total
-      //     document.documentElement.scrollTop = total
-      //     self.activeIndex = index
-      //   }
-      // }
-      // function smoothUp () {
-      //   if (distance > total) {
-      //     distance -= step
-      //     document.body.scrollTop = distance
-      //     document.documentElement.scrollTop = distance
-      //     setTimeout(smoothUp, 10)
-      //   } else {
-      //     document.body.scrollTop = total
-      //     document.documentElement.scrollTop = total
-      //     self.activeIndex = index
-      //   }
-      // }
     },
     getAllTop () {
       this.list.forEach((item,index)=>{
