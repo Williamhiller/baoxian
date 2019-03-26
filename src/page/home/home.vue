@@ -176,7 +176,7 @@ export default {
     tabs
   },
   created () {
-    this.setNewsApi()
+
   },
   mounted () {
     new Swiper('.swiper-container', {
@@ -196,12 +196,6 @@ export default {
       this.showToggle = index;
     },
 
-    setNewsApi: function () {
-      getData.JH_news('/news').then(res => {
-        console.log(res)
-        this.newsListShow = res.articles
-      })
-    }
   }
 }
 </script>

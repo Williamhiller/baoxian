@@ -5,7 +5,7 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide tab-top-item"
                :class="{'on' : activeIndex === index}"
-               v-for="(item,index) in list" @click="jump(index)">
+               v-for="(item,index) in list" v-on:click="jump(index)">
             <span class="name">{{item.name}}</span>
           </div>
         </div>
