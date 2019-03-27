@@ -146,6 +146,7 @@
 <style scoped lang="scss">
   @import "../../style/variable";
   .handpick-page {
+    overflow-x: hidden;
     padding-top: 3rem;
     background-color: #fff;
     background-image: url("../../assets/image/inner.png");
@@ -160,7 +161,7 @@
     .cont {
       background-color: #fff;
       border-radius: 0.12rem;
-      padding: .16rem;
+      padding: .28rem .2rem;
       height: 2rem;
       box-shadow: 0 .04rem .26rem 0 rgba(#000,0.06);
       h2 {

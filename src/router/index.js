@@ -10,6 +10,7 @@ import Blank from '@/page/blank/blank'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     { // 空地址跳转至home
       path: '',

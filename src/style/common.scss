@@ -36,9 +36,12 @@ body {
 }
 
 .border-bottom {
-  //border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
 }
 
+.has-tab {
+  padding-bottom: $tabs-height + 0.2rem;
+}
 
 div {
 
