@@ -48,15 +48,18 @@ div {
   //background-image: radial-gradient(50% 100%, #3EBAF9 0%, #2BB6FC 100%);
 }
 
-.swiper-pagination-bullet {
-  width: .14rem;
-  height: .14rem;
-  border-radius: .7rem;
-  background-color: rgb(112,183,249);
-  opacity: 0.3;
-  margin: 0 .09rem !important;
+.swiper-container {
+  .swiper-pagination-bullet {
+    width: .14rem !important;
+    height: .14rem !important;
+    border-radius: .7rem !important;
+    background-color: rgb(112,183,249) !important;
+    opacity: 0.3 !important;
+    margin: 0 .09rem !important;
 
-  &.swiper-pagination-bullet-active {
-    opacity: 1;
+    &.swiper-pagination-bullet-active {
+      opacity: 1 !important;
+    }
   }
 }
+
