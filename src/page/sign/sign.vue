@@ -155,7 +155,7 @@ export default {
     box-shadow: 0 .04rem .04rem 0 rgba(#000000,0.06);
 
     .tab-top-item {
-      padding-top: .05rem;
+      /*padding-top: .05rem;*/
       text-align: center;
       &.on {
         span.name {
@@ -166,9 +166,10 @@ export default {
       }
       span.name {
         padding: 0 .5em;
-        line-height: .8rem;
+        line-height: .88rem;
+        height: .88rem;
         display: inline-block;
-        border-bottom: .04rem solid transparent;
+        border-bottom: .06rem solid transparent;
         font-size: .28rem;
       }
     }

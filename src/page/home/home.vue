@@ -456,12 +456,13 @@ export default {
       li {
         font-size: .32rem;
         text-align: center;
-        padding-top: .04rem;
+        /*padding-top: .04rem;*/
         span {
           display: inline-block;
           width: 1.3rem;
-          line-height: .8rem;
-          border-bottom: .04rem solid transparent;
+          line-height: .88rem;
+          height: .88rem;
+          border-bottom: .06rem solid transparent;
         }
         &.on {
           color: $base-color;
