@@ -17,9 +17,9 @@ axios.interceptors.response.use(function (response) {
 })
 
 // 封装axios的post请求
-export function fetch (url, params) {
+export function fetch (url) {
   return new Promise((resolve, reject) => {
-    axios.get(url, params)
+    axios.get(url)
       .then(response => {
         resolve(response.data)
       })
@@ -30,7 +30,19 @@ export function fetch (url, params) {
 }
 
 export default {
-  JH_news (url, params) {
-    return fetch(url, params)
+  getHotWords (type) {
+    return fetch('/indexBannerList?postion=' + type)
+  },
+  getBanners () {
+    return fetch('/indexBannerList')
+  },
+  getAuthorArticle () {
+    return fetch('/indexAuthorArticle')
+  },
+  getSpecialArticle () {
+    return fetch('/indexSpecialArticle')
+  },
+  getOtherArticle () {
+    return fetch('/indexOtherArticle')
   }
 }
