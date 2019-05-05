@@ -153,3 +153,148 @@ Mock.mock('/indexOtherArticle', 'get', {
     }
   ]
 })
+// 签约专栏作者读取
+Mock.mock('/authorList', 'get',[
+    {
+      authorId : "01",
+      authorName : "生育保险能报啥？孕妈们关心的热点问题大盘点。",
+      photoUrl : "./static/img/inner.6817074.png", //照片路径
+      miniPhotoUrl : "", // 小照路径
+      introduction : "", // 详细介绍
+      individualResume : 0 // 简介
+    }
+])
+
+// 签约专栏作者信息读取  传入authorId
+Mock.mock('/author', 'get',{
+  authorId : "01",
+  authorName : "生育保险能报啥？孕妈们关心的热点问题大盘点。",
+  photoUrl : "./static/img/inner.6817074.png", //照片路径
+  miniPhotoUrl : "", // 小照路径
+  introduction : "", // 详细介绍
+  individualResume : 0 // 简介
+})
+// 签约专栏作者文章读取
+Mock.mock('/authorArticleList', 'get',{
+  total : 12,
+  articles : [
+    {
+      articleId : "01",
+      title : "生育保险能报啥？孕妈们关心的热点问题大盘点。",
+      imgUrl : "./static/img/inner.6817074.png",
+      link : "",
+      releaseTime : "",
+      summary : 0
+    }
+  ]
+})
+// 文章内容 传入articleId
+Mock.mock('/articleContent', 'get',{
+  title : "ss",
+  imgUrl : "./static/img/inner.6817074.png", // 配图
+  content : "ss",
+  link : "ss",
+  releaseTime : "ss", //发布时间
+  summary : "ss", //摘要
+  templetId : "ss", //签名栏模板id
+  templetName : "ss", //签名栏模板标识
+  templetContent : "ss", //签名栏模板标识
+  authorId : "ss", //
+  authorName : "ss", //
+  photoUrl : "ss", //
+  miniPhotoUrl : "ss", //
+  introduction : "ss", //
+  individualResume : "ss" // 简介
+})
+// 专题信息 传入 specialId
+Mock.mock('/special', 'get', {
+  specialTitle : "精选专题",
+  subTitle : "资深规划师案例详解",
+  imgUrl : "资深规划师案例详解",
+  summary : "资深规划师案例详解",
+  templets : [
+    {
+      specialTempletId : "01",
+      specialTemplet : "./static/img/inner.6817074.png",
+      templetIndex : "投保第一课",
+      templeTtitle : "小白扫盲必读",
+      summary : 0
+    }
+  ]
+})
+// 专题模板文章列表 传入 specialTempletId
+Mock.mock('/specialArticleList', 'get', {
+  total : 12,
+  articles : [
+    {
+      templetId : "01",
+      title : "生育保险能报啥？孕妈们关心的热点问题大盘点。",
+      imgUrl : "./static/img/inner.6817074.png",
+      link : "",
+      releaseTime : "",
+      summary : 0
+    }
+  ]
+})
+// 搜索 传入
+Mock.mock('/search', 'get', [
+  {
+    dataType : "01",
+    title : "生育保险能报啥？孕妈们关心的热点问题大盘点。",
+    relaId : "生育保险能报啥？孕妈们关心的热点问题大盘点。",
+    imgUrl : "./static/img/inner.6817074.png",
+    context : ""
+  }
+])
+
+// 名词解释 wordId
+Mock.mock('/word', 'get', {
+  wordName : "01",
+  detail : "生育保险能报啥？孕妈们关心的热点问题大盘点。",
+  imgUrl : "./static/img/inner.6817074.png",
+  parentWordId : "",
+  childWords :  [
+    {
+      childWordId : "q",
+      childWordName : "q"
+    }
+  ]
+})
+// 名词关联文章 wordId
+Mock.mock('/toArticleRela', 'get', [
+  {
+    toArticleTitle : "01",
+    toArticleLink : "生育保险能报啥？孕妈们关心的热点问题大盘点。",
+    toArticleId : "生育保险能报啥？孕妈们关心的热点问题大盘点。",
+    toArticleIndex : "./static/img/inner.6817074.png"
+  }
+])
+// 文章关联关键词 articleId
+Mock.mock('/articleKeyWordsRela', 'get', [
+  {
+    wordId : "01",
+    wordName : "生育保险能报啥？孕妈们关心的热点问题大盘点。"
+  }
+])
+// 文章关联高亮词 articleId
+Mock.mock('/articleLightWordsRela', 'get', [
+  {
+    wordId : "01",
+    wordName : "生育保险能报啥？孕妈们关心的热点问题大盘点。"
+  }
+])
+// 文章关联文章 wordId
+Mock.mock('/articleToArticleRela', 'get', [
+  {
+    toArticleTitle : "01",
+    toArticleLink : "生育保险能报啥？孕妈们关心的热点问题大盘点。",
+    toArticleId : "生育保险能报啥？孕妈们关心的热点问题大盘点。",
+    toArticleIndex : "./static/img/inner.6817074.png"
+  }
+])
+// articleToAd 文章广告
+Mock.mock('/articleToAd', 'get', {
+  adUrl : "01",
+  adLink : "生育保险能报啥？孕妈们关心的热点问题大盘点。",
+  adTitle : "生育保险能报啥？孕妈们关心的热点问题大盘点。"
+})

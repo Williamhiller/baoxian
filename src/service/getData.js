@@ -42,7 +42,46 @@ export default {
   getSpecialArticle () {
     return fetch('/indexSpecialArticle')
   },
-  getOtherArticle () {
+  getOtherArticle () { // 首页发现/问答读取
     return fetch('/indexOtherArticle')
+  },
+  getAuthorList () { // 签约专栏作者读取
+    return fetch('/authorList')
+  },
+  getAuthorInfo () { // 签约专栏作者信息读取
+    return fetch('/author')
+  },
+  getAuthorArticleList () { // 签约专栏作者文章读取
+    return fetch('/authorArticleList')
+  },
+  getArticleContent () { // 文章内容
+    return fetch('/articleContent')
+  },
+  getSpecial () { // 专题信息
+    return fetch('/special')
+  },
+  getSpecialArticleList () { // 专题模板文章列表
+    return fetch('/specialArticleList')
+  },
+  getSearch () { // 搜索
+    return fetch('/search')
+  },
+  getWord () { // 名词解释
+    return fetch('/word')
+  },
+  getToArticleRela () { // 名词关联文章
+    return fetch('/toArticleRela')
+  },
+  getArticleKeyWordsRela () { // 文章关联关键词
+    return fetch('/articleKeyWordsRela')
+  },
+  getArticleLightWordsRela () { // 文章关联高亮词
+    return fetch('/articleLightWordsRela')
+  },
+  getArticleToArticleRela () { // 文章关联文章
+    return fetch('/articleToArticleRela')
+  },
+  getArticleToAd () { // 文章关联文章
+    return fetch('/articleToAd')
   }
 }
