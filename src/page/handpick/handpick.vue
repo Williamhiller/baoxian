@@ -1,115 +1,38 @@
 <template>
-    <div class="handpick-page">
-      <div class="top-card">
-        <div class="cont">
-          <h2>"怎样投保才不会被骗？"</h2>
-          <p>我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要...</p>
-        </div>
+  <div class="handpick-page" v-if="specialData != null">
+    <img :src="specialData.imgUrl" class="top-img">
+    <div class="top-card">
+      <div class="cont">
+        <h2>{{specialData.specialTitle}}</h2>
+        <p>{{specialData.summary}}</p>
       </div>
-
-      <div class="block block1">
-        <div class="padding">
-          <h2 class="sub_title">
-            <span>01</span> 投保时的样式扫盲
-          </h2>
-        </div>
-        <div class="card_box">
-          <div class="card">
-            <div class="item item-avatar avatar-left" v-for="item in list1">
-              <div class="avatar"><img src="../../assets/image/inner.png" alt=""></div>
-              <div class="item-body">
-                <h2>标题 {{item}}</h2>
-                <p>我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要</p>
-              </div>
-            </div>
-            
-            <div class="more">
-              <img src="../../assets/image/arrow_down.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="block block2">
-        <div class="padding">
-          <h2 class="sub_title">
-            <span>02</span> 投保时的事宜
-          </h2>
-        </div>
-        <div class="card_box">
-          <div class="card">
-
-            <div class="item item-avatar avatar-left" v-for="item in list1">
-              <div class="avatar round"><img src="../../assets/image/inner.png" alt=""></div>
-              <div class="item-body">
-                <h2>健康告知</h2>
-                <p>一二三四五六</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="block block2">
-        <div class="padding">
-          <h2 class="sub_title">
-            <span>03</span> 理赔
-          </h2>
-        </div>
-        <div class="card_box">
-          <div class="card">
-
-            <div class="item item-avatar avatar-left" v-for="item in list1">
-              <div class="avatar round"><img src="../../assets/image/inner.png" alt=""></div>
-              <div class="item-body">
-                <h2>健康告知</h2>
-                <p>一二三四五六</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="block block3">
-        <div class="padding">
-          <h2 class="sub_title">
-            <span>03</span> 理赔
-          </h2>
-        </div>
-        <div class="card_box">
-          <div class="card">
-            <div><img src="../../assets/image/inner.png" alt=""></div>
-            <p>我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要</p>
-
-            <div class="text-right see"><span class="a">点击查看全文</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="block block4">
-        <div class="padding">
-          <h2 class="sub_title">
-            <span>03</span> 多图文滑块
-          </h2>
-          <p class="digest">我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要</p>
-        </div>
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="item in 6">
-              <div class="img_box">
-                <img src="../../assets/image/slide.png" alt="">
-              </div>
-              <div class="tit">我是标题</div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <tabs active="sign"></tabs>
     </div>
+
+    <div class="block block1" v-for="template in templates">
+      <div class="padding">
+        <h2 class="sub_title">
+          <span>0{{template.specialTempletId}}</span> 投保时的样式扫盲
+        </h2>
+      </div>
+      <div class="card_box">
+        <div class="card">
+          <div class="item item-avatar avatar-left" v-for="item in list1">
+            <div class="avatar"><img src="../../assets/image/inner.png" alt=""></div>
+            <div class="item-body">
+              <h2>标题 {{item}}</h2>
+              <p>我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要我是摘要</p>
+            </div>
+          </div>
+
+          <div class="more">
+            <img src="../../assets/image/arrow_down.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <tabs active="sign"></tabs>
+  </div>
 </template>
 
 <script>
@@ -121,7 +44,9 @@
     name: "handpick",
     data () {
       return {
-        list1: [1,2,3]
+        list1: [1,2,3],
+        specialData : null,
+        templates : [null,null,null,null]
       }
     },
     components:{
@@ -138,7 +63,15 @@
 
     },
     methods: {
+      getSpecial() {
+        getData.getSpecial(1).then((res)=>{
+          this.specialData = res.data
 
+          res.data.templets.forEach((item,index)=>{
+
+          })
+        })
+      }
     }
   }
 </script>
@@ -147,17 +80,22 @@
   @import "../../style/variable";
   .handpick-page {
     overflow-x: hidden;
-    padding-top: 3rem;
+    /*padding-top: 3rem;*/
     background-color: #fff;
-    background-image: url("../../assets/image/inner.png");
-    background-repeat: no-repeat;
-    background-size: 100% 4rem;
+    /*background-image: url("../../assets/image/inner.png");*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: 100% 4rem;*/
 
     padding-bottom: $tabs-height + 0.2rem;
+  }
+  .top-img {
+    width: 100%;
+    height: 4rem;
   }
 
   .top-card {
     padding: 0 .48rem;
+    margin-top: -1rem;
     .cont {
       background-color: #fff;
       border-radius: 0.12rem;
