@@ -5,11 +5,13 @@ import App from './App'
 import router from './router'
 import './plugin/rem'
 import 'swiper/dist/css/swiper.min.css'
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
 
 // 引入mockjs
-require('./mock.js')
+// require('./mock.js')
 Vue.config.productionTip = false
-
+Vue.use(MintUI)
 // 跳转后返回顶部
 router.afterEach((to,from,next) => {
   document.body.scrollTop = 0

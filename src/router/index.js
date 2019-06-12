@@ -5,6 +5,8 @@ import Sign from '@/page/sign/sign'
 import Topic from '@/page/topic/topic'
 import Handpick from '@/page/handpick/handpick'
 import Word from '@/page/word/word'
+import WordDetail from '@/page/word/WordDetail'
+import Article from '@/page/article/article'
 import Blank from '@/page/blank/blank'
 
 Vue.use(Router)
@@ -26,7 +28,7 @@ export default new Router({
       name: 'sign',
       component: Sign
     },
-    { // 专题
+    { // 精选专题
       path: '/topic',
       name: 'topic',
       component: Topic
@@ -36,15 +38,25 @@ export default new Router({
       name: 'handpick',
       component: Handpick
     },
-    { // 精选专题
+    { // 词条
       path: '/word',
       name: 'word',
       component: Word
+    },
+    { // 名词详情解释
+      path: '/wordDetail',
+      name: 'wordDetail',
+      component: WordDetail
     },
     { // 未搜索到东西
       path: '/blank',
       name: 'blank',
       component: Blank
+    },
+    { // 文章详情
+      path: '/article',
+      name: 'article',
+      component: Article
     }
   ]
 })

@@ -11,15 +11,16 @@
       <h2 class="tit">
          相关词条
       </h2>
-      <div class="relate-word">
+      <div class="relate-word" v-if="wordObj != null">
         <div class="item item-avatar avatar-left">
-          <div class="avatar"><img src="../../assets/image/inner.png" alt=""></div>
+          <div class="avatar"><img :src="wordObj.imgUrl" alt=""></div>
           <div class="item-body">
-            <h2>{{word}}</h2>
-            <p>旅行意外险，即是旅行保险，是在本国或者国际旅行中能够提供一种为支付医疗费用和财务和其他损失的保险业务。</p>
+            <h2>{{wordObj.wordName}}</h2>
+            <p>{{wordObj.detail}}</p>
           </div>
         </div>
       </div>
+      <div class="more">更多保险词条 <i class="mint-cell-allow-right"></i></div>
 
     </div>
 
@@ -33,19 +34,21 @@
           <div class="mask">步步夺金！刷步数领意外险</div>
         </li>
       </ul>
+      <div class="more">更多活动 <i class="mint-cell-allow-right"></i></div>
     </div>
 
     <div class="wrapper">
       <h2 class="tit border-bottom">
-        相关文章
+        小课堂
       </h2>
-      <ul class="relate-article">
-        <li class="border-bottom" v-for="item in 3">
+      <ul class="relate-article" v-if="relateArticles != null">
+        <router-link tag="li" :to="{path:'/article',query:{articleId:item.toArticleId}}"
+                     class="border-bottom" v-for="item in relateArticles" v-bind:key="item.homePageIndex">
           <div class="box">
-            <img src="../../assets/image/inner.png">
-            <p>生育保险能报啥？孕妈们关心的热点问题大盘点。</p>
+            <img :src="item.imgUrl">
+            <p>{{item.toArticleTitle}}</p>
           </div>
-        </li>
+        </router-link>
       </ul>
     </div>
 
@@ -54,6 +57,7 @@
 </template>
 
 <script>
+  import getData from '../../service/getData'
   import tabs from '../../components/tabs/tabs'
   export default {
     name : "word",
@@ -62,11 +66,34 @@
     },
     data () {
       return {
-        word: '旅意险'
+        inputWord : "",
+        word : "",
+        relateArticles: null,
+        wordObj : null
       }
     },
     mounted () {
+      let word = this.$route.query.word
+
       this.word = this.$route.query.word
+      this.getWordDetail(word)
+    },
+    methods : {
+      search () {
+        this.$refs.input1.blur();
+        this.word = this.inputWord
+
+        this.getWordDetail(this.word)
+      },
+      getWordDetail (word) {
+        getData.getWord({wordName : word}).then((res)=> {
+          this.wordObj = res.data.words
+
+          getData.getToArticleRela(this.wordObj[0].wordId).then((list)=> {
+            this.relateArticles = list.data.articles
+          })
+        })
+      }
     }
   }
 </script>
@@ -76,6 +103,27 @@
   @import "../../style/mixins";
   .page {
     /*background-color: #fff;*/
+
+    .more {
+      text-align: center;
+      font-size: .28rem;
+      color: $base-color;
+      font-weight: normal;
+      border-top: 1px solid $border-color;
+      margin-top: .24rem;
+      padding: .32rem 0 .12rem;
+      position: relative;
+
+      i {
+        position: relative;
+        width: .56rem;
+        height: .2rem;
+        display: inline-block;
+        &:after {
+          border-color: rgba($base-color,0.7);
+        }
+      }
+    }
   }
   .wrapper {
     background-color: #fff;
