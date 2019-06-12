@@ -140,9 +140,9 @@
 </template>
 
 <script>
-import getData from '../../service/getData'
-import tabs from '../../components/tabs/tabs'
-import Swiper from 'swiper'
+  import getData from '../../service/getData'
+  import tabs from '../../components/tabs/tabs'
+  import Swiper from 'swiper'
 
 export default {
   name: 'home',
@@ -245,8 +245,8 @@ export default {
       this.$router.push({ path: '/word', query: { word: this.inputWord || this.initWord }});
     }
 
+    }
   }
-}
 </script>
 
 <style scoped lang="scss">
@@ -345,17 +345,17 @@ export default {
         bottom: 0;
       }
       .swiper-pagination-bullet {
-         width: .14rem;
-         height: .14rem;
-         border-radius: .7rem;
-         background-color: rgb(112,183,249) !important;
-         opacity: 0.3;
-         margin: 0 .09rem !important;
+        width: .14rem;
+        height: .14rem;
+        border-radius: .7rem;
+        background-color: rgb(112,183,249) !important;
+        opacity: 0.3;
+        margin: 0 .09rem !important;
 
-         &.swiper-pagination-bullet-active {
-           opacity: 1 !important;
-         }
-       }
+        &.swiper-pagination-bullet-active {
+          opacity: 1 !important;
+        }
+      }
       .swiper-slide {
         height: 4.5rem;
         padding: 0 .1rem;

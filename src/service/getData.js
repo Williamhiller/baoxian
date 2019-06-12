@@ -1,7 +1,8 @@
 import axios from 'axios'
 // import vue from 'vue'
 
-// axios.defaults.headers.post['Content-Type'] = 'text/html;charset=utf-8'
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+
 // 请求拦截器
 axios.interceptors.request.use(function (config) {
   return config

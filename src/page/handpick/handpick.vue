@@ -25,7 +25,7 @@
                 <p>{{item.summary}}</p>
               </div>
             </router-link>
-            
+
             <div class="more" @click="getMoreArticle(index)" v-show="!item.isLast">
               <img src="../../assets/image/arrow_down.png" alt="">
             </div>
