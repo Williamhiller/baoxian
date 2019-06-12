@@ -24,18 +24,18 @@
 
     </div>
 
-    <div class="wrapper">
-      <h2 class="tit">
-        相关活动
-      </h2>
-      <ul class="relate-activity">
-        <li v-for="item in 2">
-          <img src="../../assets/image/inner.png" alt="">
-          <div class="mask">步步夺金！刷步数领意外险</div>
-        </li>
-      </ul>
-      <div class="more">更多活动 <i class="mint-cell-allow-right"></i></div>
-    </div>
+    <!--<div class="wrapper">-->
+      <!--<h2 class="tit">-->
+        <!--相关活动-->
+      <!--</h2>-->
+      <!--<ul class="relate-activity">-->
+        <!--<li v-for="item in 2">-->
+          <!--<img src="../../assets/image/inner.png" alt="">-->
+          <!--<div class="mask">步步夺金！刷步数领意外险</div>-->
+        <!--</li>-->
+      <!--</ul>-->
+      <!--<div class="more">更多活动 <i class="mint-cell-allow-right"></i></div>-->
+    <!--</div>-->
 
     <div class="wrapper">
       <h2 class="tit border-bottom">
